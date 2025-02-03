@@ -1,7 +1,7 @@
 import { FC } from "react";
 
 const SearchBar: FC = () => {
-  return <div>SearchBar</div>;
+  return <form>SearchBar</form>;
 };
 
 export default SearchBar;
