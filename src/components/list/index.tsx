@@ -23,11 +23,11 @@ const List: FC = () => {
       .catch((err) => setError(err.message));
   }, [params]);
 
-  if (!cars) return <Warning>Yükleniyor..</Warning>;
+  if (!cars) return <Warning>Loading..</Warning>;
 
-  if (error) return <Warning>Hata Mesajı</Warning>;
+  if (error) return <Warning>Error Message</Warning>;
 
-  if (cars.length < 1) return <Warning>Veri bulunamadı</Warning>;
+  if (cars.length < 1) return <Warning>Data not found</Warning>;
 
   return (
     <div className="padding-x max-width">
@@ -45,11 +45,9 @@ const List: FC = () => {
           containerClassName="pagination"
           initialPage={Number(params.get("page") || 1) - 1}
           onPageChange={(e) => {
-            // sayfa parametresini güncelle
             params.set("page", String(e.selected + 1));
             setParams(params);
 
-            // yukarıya scrolla
             document.querySelector("#filter")?.scrollIntoView();
           }}
           renderOnZeroPageCount={null}

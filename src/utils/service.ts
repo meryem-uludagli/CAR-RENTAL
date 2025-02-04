@@ -12,7 +12,6 @@ type Filter = {
   page?: string;
 };
 
-// Asenkron fonksiyonların return tipinde doğrudan fonksiyonun return etitiği veriyi yazdığımız hata alırız. Fonksiyonların hata döndrüdem ihtimalinde göze alarak ts'in içerisinde nulunan Promise tipine kendi tipimizi generic olarak göndermeliyiz
 export const fetchCars = async ({
   make = "BMW",
   model,
@@ -23,11 +22,6 @@ export const fetchCars = async ({
     "https://public.opendatasoft.com/api/explore/v2.1/catalog/datasets/all-vehicles-model/records"
   );
 
-  // page (kaçıncı sayfa olduğu state'i) 1     2    3     4
-  // limit (kaç tane eleman alınacak)    10    10   10    10
-  // offset (kaç tane eleman atlanıcak)  0     10   20    30
-
-  // sayfa başına gösterilcek eleman sayısı
   const limit = 10;
 
   url.searchParams.append("limit", String(limit));

@@ -58,7 +58,7 @@ const SearchBar: FC = () => {
 
           <input
             className="searchbar-input rounded text-black bg-white"
-            placeholder="örn:Civic"
+            placeholder="Ex:M8"
             onChange={(e) => setModel(e.target.value)}
             defaultValue={params.get("model") as string}
             type="text"
