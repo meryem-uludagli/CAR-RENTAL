@@ -13,27 +13,28 @@ type Props = {
 
 const Card: FC<Props> = ({ car }) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
   return (
     <motion.div
       initial={{ scale: 0.5, opacity: 0 }}
       whileInView={{ scale: 1, opacity: 1 }}
-      className="car-card"
+      className="car-card group"
     >
-      <h2>
+      <h2 className="car-card-content-title">
         {car.make} {car.model}
       </h2>
 
-      <div className="flex mt-6 text-[19]">
-        <span className="font-semibold">$</span>
+      <div className="flex mt-6 text-[19px]">
+        <span className="font-semibold">₺</span>
         <span className="text-[32px]">{calcPrice(car)}</span>
-        <span className="font-semibold self-end">/day</span>
+        <span className="font-semibold self-end">/gün</span>
       </div>
 
       <div className="w-full">
         <img
           src={generateImage(car)}
           alt={car.model}
-          className="w-full h-full object-contain"
+          className="w-full h-full object-contain min-h-[200px]"
         />
       </div>
 
@@ -41,18 +42,20 @@ const Card: FC<Props> = ({ car }) => {
         <div className="group-hover:hidden">
           <Info car={car} />
         </div>
+
         <motion.div
           initial={{ scale: 0.5 }}
           whileInView={{ scale: 1 }}
           className="hidden group-hover:block"
         >
           <Button
-            text="More"
+            text="Daha Fazla"
             designs="w-full text-white"
             handleClick={() => setIsOpen(true)}
           />
         </motion.div>
       </div>
+
       <Modal isOpen={isOpen} car={car} close={() => setIsOpen(false)} />
     </motion.div>
   );
