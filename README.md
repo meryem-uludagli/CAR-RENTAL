@@ -1,4 +1,4 @@
-# 🚗 Car Rental App
+# 🚗 Car Rental
 
 This is a modern car rental application built with React, TypeScript, and TailwindCSS, using powerful libraries such as React Router, React Select, Motion, and React Paginate to provide a smooth and interactive user experience.
 
